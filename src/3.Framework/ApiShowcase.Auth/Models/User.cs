@@ -1,6 +1,6 @@
 namespace ApiShowcase.Auth.Models
 {
-    public class Use
+    public class User
     {
         public int Id { get; set; }
         public string Username { get; set; }
