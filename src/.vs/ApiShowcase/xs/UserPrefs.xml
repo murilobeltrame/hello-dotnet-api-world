@@ -1,19 +1,20 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{462FC3E8-ADB7-41AC-A068-4040AFBDA932}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="3.Framework/ApiShowcase.Auth/Startup.cs">
     <Files>
       <File FileName="3.Framework/ApiShowcase.Auth/Models/User.cs" Line="4" Column="6" />
       <File FileName="3.Framework/ApiShowcase.Auth/Repository/UserRepository.cs" Line="1" Column="1" />
       <File FileName="3.Framework/ApiShowcase.Auth/Services/TokenService.cs" Line="15" Column="61" />
       <File FileName="3.Framework/ApiShowcase.Auth/Startup.cs" Line="76" Column="34" />
+      <File FileName="3.Framework/ApiShowcase.Auth/Controllers/TokenController.cs" Line="13" Column="19" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ApiShowcase" expanded="True" selected="True">
+          <Node name="ApiShowcase" expanded="True">
             <Node name="3.Framework" expanded="True">
-              <Node name="ApiShowcase.Auth" expanded="True">
+              <Node name="ApiShowcase.Auth" expanded="True" selected="True">
                 <Node name="Controllers" expanded="True" />
-                <Node name="Services" expanded="True" />
+                <Node name="Repositories" expanded="True" />
               </Node>
             </Node>
           </Node>

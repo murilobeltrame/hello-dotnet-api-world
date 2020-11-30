@@ -12,7 +12,7 @@ namespace ApiShowcase.Auth.Services
         public static string GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes("My$uperS3cret");
+            var key = Encoding.ASCII.GetBytes("Su__3rL0ng$uperS3cretK34thatshouldworks");
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]{
