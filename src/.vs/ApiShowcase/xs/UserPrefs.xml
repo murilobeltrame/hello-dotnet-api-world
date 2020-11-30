@@ -1,21 +1,16 @@
-﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{462FC3E8-ADB7-41AC-A068-4040AFBDA932}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="3.Framework/ApiShowcase.Auth/Startup.cs">
-    <Files>
-      <File FileName="3.Framework/ApiShowcase.Auth/Models/User.cs" Line="4" Column="6" />
-      <File FileName="3.Framework/ApiShowcase.Auth/Repository/UserRepository.cs" Line="1" Column="1" />
-      <File FileName="3.Framework/ApiShowcase.Auth/Services/TokenService.cs" Line="15" Column="61" />
-      <File FileName="3.Framework/ApiShowcase.Auth/Startup.cs" Line="76" Column="34" />
-      <File FileName="3.Framework/ApiShowcase.Auth/Controllers/TokenController.cs" Line="13" Column="19" />
-    </Files>
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="RestServerConfiguration">
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ApiShowcase" expanded="True">
+          <Node name="ApiShowcase" expanded="True" selected="True">
             <Node name="3.Framework" expanded="True">
-              <Node name="ApiShowcase.Auth" expanded="True" selected="True">
-                <Node name="Controllers" expanded="True" />
-                <Node name="Repositories" expanded="True" />
+              <Node name="ApiShowcase.Auth" expanded="True">
+                <Node name="Models" expanded="True" />
               </Node>
+              <Node name="ApiShowcase.GraphQL" expanded="True" />
+              <Node name="ApiShowcase.Grpc" expanded="True" />
+              <Node name="ApiShowcase.Rest" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -27,11 +22,19 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.3.Framework.ApiShowcase.Rest PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.3.Framework.ApiShowcase.Auth PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="RestServerConfiguration" Name="RestServerConfiguration">
+      <Items>
+        <StartupItem ItemId="{462FC3E8-ADB7-41AC-A068-4040AFBDA932}" ItemName="ApiShowcase.Auth" ConfigurationId="Default" />
+        <StartupItem ItemId="{2414A819-CE04-4E8A-B5E0-F1F45537B873}" ItemName="ApiShowcase.Rest" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
 </Properties>
