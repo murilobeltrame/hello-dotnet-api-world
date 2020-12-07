@@ -1,7 +1,9 @@
 using System.Text;
+using ApiShowcase.Drivers.Data.SQLServer.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +25,8 @@ namespace ApiShowcase.Rest
         public void ConfigureServices(IServiceCollection services)
         {
             var key = Encoding.ASCII.GetBytes("Su__3rL0ng$uperS3cretK34thatshouldworks");
+
+            services.AddDbContext<AdventureWorksContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
             services.AddCors();
             services.AddControllers();
