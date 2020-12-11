@@ -1,8 +1,10 @@
 using System.IO.Compression;
 using System.Text;
 using ApiShowcase.Drivers.Data.SQLServer.Models;
+using ApiShowcase.Rest.Utils.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;

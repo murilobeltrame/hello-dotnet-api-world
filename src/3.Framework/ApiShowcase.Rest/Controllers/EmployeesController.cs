@@ -25,6 +25,7 @@ namespace ApiShowcase.Rest.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Employee>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> Get([FromQuery]GetRequestModel parameters)
         {
             var employeesQuery = _context.Employees.AsQueryable();
@@ -58,6 +59,7 @@ namespace ApiShowcase.Rest.Controllers
         [ProducesResponseType(typeof(Employee), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> Get(int id)
         {
             if (id <= 0) return BadRequest(new ErrorResponse { Message = "This is an invalid ID." });
@@ -70,6 +72,7 @@ namespace ApiShowcase.Rest.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(Employee), (int)HttpStatusCode.Created)]
         [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> Post([FromBody] Employee data)
         {
             if (data == null) return BadRequest(new ErrorResponse { Message = "Employee data cannot be null."});
@@ -86,6 +89,7 @@ namespace ApiShowcase.Rest.Controllers
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
         [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> Put(int id, [FromBody] Employee data)
         {
             if (id <= 0) return BadRequest(new ErrorResponse { Message = "This is an invalid ID." });
@@ -103,6 +107,7 @@ namespace ApiShowcase.Rest.Controllers
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
         [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest(new ErrorResponse { Message = "This is an invalid ID." });

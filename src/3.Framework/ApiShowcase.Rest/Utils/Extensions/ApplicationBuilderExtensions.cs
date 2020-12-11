@@ -4,6 +4,7 @@ using ApiShowcase.Rest.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace ApiShowcase.Rest.Utils.Extensions
 {
@@ -11,29 +12,16 @@ namespace ApiShowcase.Rest.Utils.Extensions
     {
         public static IApplicationBuilder UseJsonExceptionHandler(this IApplicationBuilder app)
         {
-            app.Run(async context => await Task.Run(() =>
+            return app.UseExceptionHandler(application => application.Run(async context =>
             {
-                var _errorFeature = context.Features.Get<IExceptionHandlerFeature>();
-                var _exception = _errorFeature.Error;
+                //var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
+                var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerPathFeature>();
+                var exception = exceptionHandlerFeature?.Error;
 
-                var _problemDetails = new ErrorResponse();
-
-                if (_exception is BadHttpRequestException badHttpRequestException)
-                {
-                    _problemDetails.Message = "Invalid request";
-                    context.Response.StatusCode = (int)typeof(BadHttpRequestException).GetProperty("StatusCode", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(badHttpRequestException);
-                }
-                else
-                {
-                    _problemDetails.Message = "An unexpected error occurred!";
-                    context.Response.StatusCode = 500;
-                }
-
-                
-                context.Response.WriteJson(_problemDetails);
+                var result = JsonConvert.SerializeObject(new ErrorResponse{ Message = exception?.Message ?? string.Empty });
+                context.Response.ContentType = "application/json";
+                await context.Response.WriteAsync(result);
             }));
-
-            return app;
         }
     }
 }
