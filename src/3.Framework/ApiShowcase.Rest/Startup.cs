@@ -1,8 +1,10 @@
+using System.IO.Compression;
 using System.Text;
 using ApiShowcase.Drivers.Data.SQLServer.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,8 +30,22 @@ namespace ApiShowcase.Rest
 
             services.AddDbContext<AdventureWorksContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
+            // CONFIGURING CORS
             services.AddCors();
-            services.AddControllers();
+
+            // CONFIGURING HEALTHCHECKS
+            services.AddHealthChecks();
+
+            // CONFIGURING HTTP(S) RESPONSE COMPRESSION
+            services.AddResponseCompression(options =>
+            {
+                options.Providers.Add<BrotliCompressionProvider>();
+                options.Providers.Add<GzipCompressionProvider>();
+            });
+            services.Configure<BrotliCompressionProviderOptions>(options => { options.Level = CompressionLevel.Optimal; });
+            services.Configure<GzipCompressionProviderOptions>(options => { options.Level = CompressionLevel.Optimal; });
+
+            // CONFIGURING AUTHENTICATION AND AUTHORIZATION WITH JWT BEARER TOKEN
             services
                 .AddAuthentication(options =>
                 {
@@ -48,6 +64,14 @@ namespace ApiShowcase.Rest
                         ValidateAudience = false
                     };
                 });
+
+            services
+                .AddControllers(options => {
+                    options.RespectBrowserAcceptHeader = true;
+                    options.EnableEndpointRouting = true;
+                });
+
+            // CONFIGURING SWAGGER DOCUMENTATION GENERATION
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiShowcase.Rest", Version = "v1" });
@@ -75,6 +99,11 @@ namespace ApiShowcase.Rest
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseHealthChecks("/health");
+            app.UseResponseCompression();
+
+            app.UseJsonExceptionHandler();
 
             app.UseEndpoints(endpoints =>
             {
