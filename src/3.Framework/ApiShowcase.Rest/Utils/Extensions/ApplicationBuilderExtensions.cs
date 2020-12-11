@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-using System.Threading.Tasks;
-using ApiShowcase.Rest.Models;
+﻿using ApiShowcase.Rest.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
