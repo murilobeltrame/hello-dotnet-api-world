@@ -1,30 +1,27 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="RestServerConfiguration">
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="3.Framework/ApiShowcase.Rest/Controllers/EmployeesController.cs" Line="120" Column="10" />
-      <File FileName="3.Framework/ApiShowcase.Rest/appsettings.json" />
-      <File FileName="3.Framework/ApiShowcase.Drivers.Data.SQLServer/Models/AdventureWorksContext.cs" />
-      <File FileName="3.Framework/ApiShowcase.Rest/Program.cs" />
-      <File FileName="3.Framework/ApiShowcase.Rest/Startup.cs" Line="108" Column="26" />
-      <File FileName="3.Framework/ApiShowcase.Auth/Program.cs" />
-      <File FileName="3.Framework/ApiShowcase.Rest/Models/GetRequestModel.cs" />
-      <File FileName="3.Framework/ApiShowcase.Rest/Models/ErrorResponse.cs" />
-      <File FileName="3.Framework/ApiShowcase.Rest/Utils/Extensions/ApplicationBuilderExtensions.cs" Line="1" Column="1" />
+      <File FileName="3.Framework/ApiShowcase.Rest/Startup.cs" Line="117" Column="49" />
+      <File FileName="3.Framework/ApiShowcase.Rest/V1/Models/GetRequestModel.cs" />
+      <File FileName="3.Framework/ApiShowcase.Rest/Utils/Extensions/ApplicationBuilderExtensions.cs" />
+      <File FileName="3.Framework/ApiShowcase.Rest/V1/Controllers/EmployeesController.cs" Line="15" Column="20" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ApiShowcase" expanded="True">
             <Node name="3.Framework" expanded="True">
-              <Node name="ApiShowcase.Auth" expanded="True" />
-              <Node name="ApiShowcase.Drivers.Data.SQLServer" expanded="True" />
               <Node name="ApiShowcase.Rest" expanded="True">
-                <Node name="Controllers" expanded="True" />
+                <Node name="Models" expanded="True" />
                 <Node name="Utils" expanded="True">
-                  <Node name="Extensions" expanded="True">
-                    <Node name="ApplicationBuilderExtensions.cs" selected="True" />
+                  <Node name="Documentation" expanded="True">
+                    <Node name="Swagger" expanded="True" />
                   </Node>
                 </Node>
+                <Node name="V1" expanded="True">
+                  <Node name="Controllers" expanded="True" />
+                </Node>
+                <Node name="Startup.cs" selected="True" />
               </Node>
             </Node>
           </Node>
